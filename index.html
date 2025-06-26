@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Struga 2025 — Artists</title>
+
+  <!-- Bootstrap & icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Libre+Franklin:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Site-wide stylesheet -->
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* Remove built-in clear (×) button from search inputs (Chrome/Edge) */
+    input[type="search"]::-webkit-search-cancel-button{display:none}
+
+    /* gradient backdrop */
+    body{background:#111;color:#eee;
+         background-image:linear-gradient(135deg,#111 0%,#131313 40%,#191919 100%);}
+
+    /* --- card grid ---------------------------------------------------- */
+    .artist-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:2rem;padding:1rem}
+    .artist-card{position:relative;background:#1a1a1a;border:1px solid #333;border-radius:12px;overflow:hidden;cursor:pointer;
+                 transition:transform .25s,box-shadow .25s;transform-style:preserve-3d}
+    .artist-card:hover{box-shadow:0 12px 28px rgba(0,0,0,.55)}
+    .artist-card img{width:100%;height:260px;object-fit:cover;filter:grayscale(.15) contrast(1.05)}
+    .artist-info{padding:1rem;text-align:center}
+    .artist-info h5{color:#e94560;font-size:1.1rem;margin-bottom:.35rem;letter-spacing:.4px}
+    .artist-info p {color:#ccc;font-size:.9rem}
+
+    /* organiser highlight */
+    .artist-card.organizer{grid-column:span 2;border:2px solid #e94560;background:#191919}
+    @media(max-width:576px){.artist-card.organizer{grid-column:span 1}}
+
+    /* filter bar */
+    .filter-bar input,.filter-bar select{background:#222;border:1px solid #444;color:#eee}
+    .filter-bar input::placeholder{color:#777}
+
+    /* subtle 3-D tilt */
+    .tilt{will-change:transform}
+
+    /* global link reset */
+    a{text-decoration:none;color:inherit}
+    a:hover{text-decoration:underline;color:#e94560}
+  </style>
+</head>
+<body>
+
+<!-- ========= HEADER ========= -->
+<header class="site-header">
+  <div class="header-container">
+    <div class="logo"><a href="home.html"><img src="/assets/sponsors/struga.png" alt="Silindart logo"></a></div>
+
+    <div class="menu-toggle" onclick="toggleMenu()"><div></div><div></div><div></div></div>
+
+    <nav class="main-nav">
+      <ul id="nav-list">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="index.html" class="active">Artists</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="lang-switcher">
+      <button data-lang="sq">🇦🇱</button>
+      <button data-lang="en">🇬🇧</button>
+      <button data-lang="mk">🇲🇰</button>
+    </div>
+  </div>
+</header>
+
+<!-- ========= MAIN ========= -->
+<main class="container-xxl py-5">
+
+  <!-- filter controls -->
+  <div class="filter-bar text-center mb-4">
+    <input id="artistSearch" class="form-control d-inline-block w-auto me-2"
+           type="search" placeholder="Search artist…" list="artistNames">
+    <datalist id="artistNames"></datalist>
+
+    <button id="searchBtn" class="btn btn-danger me-2"><i class="bi bi-search"></i></button>
+
+    <select id="mediumFilter" class="form-select d-inline-block w-auto">
+      <option value="">All media</option>
+      <option>Painting</option>
+      <option>Sculpture</option>
+      <option>Mixed media</option>
+    </select>
+  </div>
+
+  <!-- organisers ------------------------------------------------------- -->
+  <section class="artist-gallery fade-slide-up">
+    <h2>Organization Team</h2>
+    <div class="artist-grid">
+      <!-- organisers cards … (unchanged) -->
+      <a href="artist/bio-burhan.html"  class="artist-card tilt" data-medium="Painting">
+        <img src="/assets/images2/burhan.jpg"  alt="Burhan Ahmeti"><div class="artist-info"><h5>Burhan Ahmeti</h5><p>Director</p></div></a>
+      <a href="artist/bio-berat.html"   class="artist-card tilt" data-medium="Painting">
+        <img src="/assets/images2/berat.jpg"   alt="Berat Zelbehari"><div class="artist-info"><h5>Berat Zelbehari</h5><p>Curator</p></div></a>
+      <a href="artist/bio-akime.html"   class="artist-card tilt" data-medium="Painting">
+        <img src="/assets/images2/akime.jpg"   alt="Akime N. Rexhepi"><div class="artist-info"><h5>Akime N. Rexhepi</h5><p>Coordinator</p></div></a>
+      <a href="artist/bio-hristijan.html" class="artist-card tilt" data-medium="Painting">
+        <img src="/assets/images2/hristijani.jpg" alt="Hristijan Tomanovski"><div class="artist-info"><h5>Hristijan Tomanovski</h5><p>Org Team</p></div></a>
+      <a href="artist/bio-drenusha.html" class="artist-card tilt" data-medium="Painting">
+        <img src="/assets/images2/drenusha.jpg" alt="Drenusha Palloshi"><div class="artist-info"><h5>Drenusha Palloshi</h5><p>Org Team</p></div></a>
+      <a href="artist/bio-faton.html"   class="artist-card tilt" data-medium="Photography">
+        <img src="/assets/images2/faton.jpg" alt="Faton Murati"><div class="artist-info"><h5>Faton Murati</h5><p>Photographer</p></div></a>
+      <a href="artist/bio-jelldez.html" class="artist-card tilt" data-medium="Criticism">
+        <img src="/assets/images2/jelldez.jpg" alt="Jelldez Asani"><div class="artist-info"><h5>Jelldez Asani</h5><p>Art Critic</p></div></a>
+      <a href="artist/teuta.html"       class="artist-card tilt" data-medium="Painting">
+        <img src="/assets/images2/teutaimeri.jpg" alt="Teuta Imeri"><div class="artist-info"><h5>Teuta Imeri</h5><p>Coordinator</p></div></a>
+    </div>
+  </section>
+
+  <!-- full gallery ----------------------------------------------------- -->
+  <section class="gallery fade-slide-up">
+    <h1 class="animated-title">Artists Gallery</h1>
+<!-- ▼ replace your existing Artists Gallery section with this ▼ -->
+<section class="gallery fade-slide-up">
+
+
+  <div class="gallery-grid">
+    <!-- BEGIN artist cards -->
+    <a href="artist/bio-alaybey.html"><img src="assets/images2/alaybey.jpg"   alt="Alaybey Karoğlu"></a>
+    <a href="artist/ari.html"><img              src="assets/images2/ari.jpg"       alt="Ari De Goes Jr."></a>
+    <a href="artist/bio-barbara.html"><img      src="assets/images2/barbara.jpg"   alt="Barbara Demšar"></a>
+    <a href="artist/bio-dorothea.html"><img     src="assets/images2/dora.jpg"      alt="Dorothea Fleiss"></a>
+    <a href="artist/bio-enesa.html"><img        src="assets/images2/enesa.jpg"     alt="Enesa Memeti"></a>
+    <a href="artist/bio-erseka.html"><img       src="assets/images2/ers.jpg"       alt="Erseka Mulliqi"></a>
+    <a href="artist/bio-fatmanur.html"><img     src="assets/images2/fatmanur.jpg"  alt="Fatmanur Savruk"></a>
+    <a href="artist/bio-fatos.html"><img        src="assets/images2/fatos.jpg"     alt="Fatos Bylykbashi"></a>
+    <a href="artist/bio-hristijan.html"><img    src="assets/images2/hristijani.jpg" alt="Hristijan Tomanovski"></a>
+    <a href="artist/bio-jona.html"><img         src="assets/images2/jona.jpg"      alt="Jona Dividi"></a>
+    <a href="artist/bio-lida.html"><img         src="assets/images2/lida.jpg"      alt="Lida Sharafatmand"></a>
+    <a href="artist/bio-mate.html"><img         src="assets/images2/mate.jpg"      alt="Mate Rainer"></a>
+    <a href="artist/bio-mikel.html"><img        src="assets/images2/mikel.jpg"     alt="Mikel Temo"></a>
+    <a href="artist/bio-nedzma.html"><img       src="assets/images2/nedzma.jpg"    alt="Nedžma Zukorlić"></a>
+    <a href="artist/bio-rromir.html"><img       src="assets/images2/rromir.jpg"    alt="Rromir Imami"></a>
+    <a href="artist/bio-sabbah.html"><img       src="assets/images2/sabbah.jpg"    alt="Sabbah Lyad"></a>
+    <a href="artist/bio-sarah.html"><img        src="assets/images2/sara.jpg"      alt="Sarah Iva Vujin"></a>
+    <a href="artist/bio-simonida.html"><img     src="assets/images2/smonida.jpg"   alt="Simonida F. Kitanoska"></a>
+    <a href="artist/su"><img                    src="assets/images2/sumeyye.jpg"   alt="Sümeyye Dursun"></a>
+    <a href="artist/bio-visar.html"><img        src="assets/images2/vis.jpg"       alt="Visar Mulliqi"></a>
+    <a href="artist/chris.html"><img            src="assets/images2/Christina.jpg" alt="Christina — guest artist"></a>
+    <!-- END artist cards -->
+  </div>
+</section>
+<!-- ▲ paste ends here ▲ -->
+
+
+</main><!-- /main -->
+
+<!-- quick-view modal (unchanged) -->
+<div class="modal fade" id="artistQuickView" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content bg-dark border-light">
+      <div class="modal-header border-0">
+        <h5 class="modal-title text-light"></h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img class="img-fluid mb-3 rounded" src="" alt="artist portrait">
+        <p class="artist-bio small text-light"></p>
+        <a class="btn btn-danger" target="_blank">Full bio page</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="text-center text-muted py-3 bg-dark mt-5">© 2025 SILINDART</footer>
+
+<!-- Scripts ----------------------------------------------------------- -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+/* ---------- responsive nav toggle (if script.js missing) ------------- */
+if (typeof toggleMenu !== 'function') {
+  window.toggleMenu = () =>
+    document.querySelector('.main-nav ul').classList.toggle('active');
+}
+
+/* ---------- grab essentials ----------------------------------------- */
+const cards   = [...document.querySelectorAll('.artist-card')];
+const search  = document.getElementById('artistSearch');
+const medium  = document.getElementById('mediumFilter');
+const datalist = document.getElementById('artistNames');
+
+const allArtistNames = [
+  "Alaybey Karoğlu","Ari De Goes Jr.","Barbara Demšar","Dorothea Fleiss",
+  "Enesa Memeti","Erseka Mulliqi","Fatmanur Savruk","Fatos Bylykbashi",
+  "Hristijan Tomanovski","Jona Dividi","Lida Sharafatmand","Mate Rainer",
+  "Mikel Temo","Nedžma Zukorlić","Rromir Imami","Sabbah Lyad",
+  "Sarah Iva Vujin","Simonida F. Kitanoska","Sümeyye Dursun","Visar Mulliqi"
+];
+
+/* ---------- smart autocomplete -------------------------------------- */
+search.addEventListener('input', () => {
+  const q = search.value.trim().toLowerCase();
+  datalist.innerHTML = '';
+  if (q.length >= 2) {
+    allArtistNames
+      .filter(n => n.toLowerCase().startsWith(q))
+      .slice(0, 8)
+      .forEach(n => {
+        const opt = document.createElement('option');
+        opt.value = n;
+        datalist.appendChild(opt);
+      });
+  }
+  filter(); scrollToFirstMatch();
+});
+
+/* ---------- filter helpers ------------------------------------------ */
+function filter () {
+  const q = search.value.toLowerCase();
+  cards.forEach(card => {
+    const matchName = card.alt.toLowerCase().includes(q);
+    const matchMed  = !medium.value || card.dataset.medium === medium.value;
+    card.style.display = (matchName && matchMed) ? '' : 'none';
+  });
+}
+function scrollToFirstMatch () {
+  const first = cards.find(c => c.style.display !== 'none');
+  if (first) first.scrollIntoView({behavior:'smooth', block:'center'});
+}
+
+/* ---------- other listeners ----------------------------------------- */
+medium.addEventListener('input', () => { filter(); scrollToFirstMatch(); });
+document.getElementById('searchBtn').addEventListener('click', () => {
+  filter(); scrollToFirstMatch(); search.focus();
+});
+search.addEventListener('change', () => { filter(); scrollToFirstMatch(); });
+
+/* ---------- quick-view modal & 3-D tilt (your originals) ------------ */
+cards.forEach(card => card.addEventListener('click', e => {
+  e.preventDefault();
+  const m = document.getElementById('artistQuickView');
+  m.querySelector('.modal-title').textContent = card.alt;
+  m.querySelector('img').src  = card.querySelector('img').src;
+  m.querySelector('.artist-bio').textContent = card.dataset.bio || '';
+  m.querySelector('a').href = card.href;
+  new bootstrap.Modal(m).show();
+}));
+document.querySelectorAll('.tilt').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const r = card.getBoundingClientRect();
+    const x = (e.clientX - r.left)/r.width - .5;
+    const y = (e.clientY - r.top )/r.height - .5;
+    card.style.transform = `rotateY(${x*8}deg) rotateX(${-y*8}deg)`;
+  });
+  card.addEventListener('mouseleave', () => card.style.transform = '');
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Struga 2025 – Home</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1/font/bootstrap-icons.css">
+  <!-- Elegant serif for headings -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+<!-- Clean sans-serif for body text -->
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500&display=swap" rel="stylesheet">
+
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Particles.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+  <style>
+    body {
+      background-color: #111;
+      color: #eee;
+      overflow-x: hidden;
+    }
+    .particles-bg {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+    }
+    .video-section {
+      position: relative;
+      padding: 4rem 1rem 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1;
+    }
+    .video-wrapper-boosted {
+      width: 100%;
+      max-width: 900px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 0 50px rgba(255, 0, 0, 0.3);
+    }
+    .video-wrapper-boosted video {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: inherit;
+    }
+    .mute-toggle-btn {
+      position: absolute;
+      bottom: 16px;
+      right: 16px;
+      z-index: 10;
+      background: rgba(255, 50, 50, 0.7);
+      border: none;
+      border-radius: 50%;
+      width: 42px;
+      height:42px;
+      font-size: 1rem;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      backdrop-filter: blur(4px);
+      transition: background 0.3s, transform 0.2s;
+    }
+    @media (max-width: 600px) {
+  .mute-toggle-btn {
+    bottom: 12px;
+    right: 12px;
+    width: 34px;
+    height: 34px;
+    font-size: 0.9rem;
+  }
+}
+
+    .mute-toggle-btn.unmuted {
+      background: rgba(50, 150, 255, 0.7);
+    }
+    .mute-toggle-btn:hover {
+      transform: scale(1.1);
+    }
+
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 1s ease forwards;
+}
+.fade-in-up:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.fade-in-up:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* hero glass panel */
+/* overwrite the old hero-overlay rule (or just add these lines at the end) */
+.hero-overlay{
+  opacity:0;                           /* start invisible & un-blurred   */
+  backdrop-filter:none;
+  transition:opacity .8s ease-out,
+             backdrop-filter 1s ease-out;
+}
+.hero-overlay.show{
+  opacity:1;                           /* fade in + bring back the blur */
+  backdrop-filter:blur(6px) saturate(140%);
+}
+
+.video-section .btn{pointer-events:auto} /* restore click on the CTA */
+
+    /* base */
+    body{background:#111;color:#eee;overflow-x:hidden}
+    header{position:relative;z-index:3000} /* keeps hamburger above video */
+    .particles-bg{position:fixed;inset:0;z-index:0;pointer-events:none}
+
+    /* video hero */
+    .video-section{position:relative;padding:4rem 1rem 2rem;display:flex;justify-content:center;align-items:center;z-index:1}
+    .video-wrapper{width:100%;max-width:900px;border-radius:16px;overflow:hidden;box-shadow:0 0 50px rgba(255,0,0,.3)}
+    .video-wrapper video{width:100%;display:block;border-radius:inherit}
+    .hero-overlay{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;color:#fff;background:rgba(0,0,0,.35);backdrop-filter:blur(6px)saturate(140%);pointer-events:none}
+    .video-section .btn{pointer-events:auto}
+    .mute-toggle-btn{position:absolute;bottom:20px;right:20px;width:50px;height:50px;border-radius:50%;border:none;font-size:1.4rem;display:flex;align-items:center;justify-content:center;color:#fff;cursor:pointer;background:rgba(255,50,50,.7);backdrop-filter:blur(4px);transition:background .3s,transform .2s}
+    .mute-toggle-btn:hover{transform:scale(1.1)}
+    .mute-toggle-btn.unmuted{background:rgba(50,150,255,.7)}
+
+    /* timeline grid */
+    .timeline{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:2rem 3rem;max-width:1100px;margin:0 auto;padding:0}
+    .timeline li{list-style:none;position:relative;text-align:center;color:#ccc;font-size:.95rem;padding-top:2rem}
+    .timeline li span{display:block;font-weight:600;margin-bottom:.25rem}
+    .timeline li::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:14px;height:14px;border:2px solid #e94560;border-radius:50%;background:#111}
+    .timeline li::after{content:'';position:absolute;top:14px;left:50%;transform:translateX(-50%);width:2px;height:38px;background:#444}
+    @media(max-width:600px){.timeline{grid-template-columns:1fr}}
+
+    /* counters */
+    .stats-section h3{font:3rem/1 'Playfair Display',serif;color:#e94560;margin-bottom:.25rem}
+
+    /* mobile nav patch */
+    .menu-toggle{z-index:3500}
+    @media(max-width:768px){
+      .main-nav ul{position:absolute;top:100%;left:0;right:0;background:#222;padding:1rem 0;border-top:1px solid #333;display:none;flex-direction:column;gap:.5rem;text-align:center}
+      .main-nav ul.active{display:flex}
+    }
+    /* ── PHONE-ONLY TWEAK FOR THE 🔇 / 🔊 BUTTON ────────────────── */
+/* ── fine-tune the phone mute button position ──────────────── */
+/* ── lift the phone mute button even higher ────────────────── */
+/* ── fine-tune phone position of the mute button ───────────── */
+/* phone fine-tune: a touch higher & farther left */
+@media (max-width: 600px){
+  .video-wrapper-boosted .mute-toggle-btn{
+    bottom: 33px;   /* ↑ raise it a bit more */
+    right: 17px;    /* ← move it farther in from the edge */
+  }
+}
+
+
+
+  </style>
+</head>
+<body class="home-page">
+  <div id="particles-js" class="particles-bg"></div>
+  <header>
+    <div class="header-container">
+      <div class="logo">
+        <img src="/assets/sponsors/struga.png" alt="Silindart Logo" />
+      </div>
+      <div class="menu-toggle" onclick="toggleMenu()">
+        <div></div><div></div><div></div>
+      </div>
+      <nav class="main-nav">
+        <ul id="nav-list">
+  <li><a href="home.html"
+       data-lang-en="Home"
+       data-lang-sq="Ballina"
+       data-lang-mk="Дома">Home</a></li>
+
+<li><a href="index.html"
+       data-lang-en="Artists"
+       data-lang-sq="Artistët"
+       data-lang-mk="Уметници">Artists</a></li>
+
+<li><a href="gallery.html"
+       data-lang-en="Gallery"
+       data-lang-sq="Galeria"
+       data-lang-mk="Галерија">Gallery</a></li>
+
+<li><a href="contact.html"
+       data-lang-en="Contact"
+       data-lang-sq="Kontakti"
+       data-lang-mk="Контакт">Contact</a></li>
+
+        </ul>
+      </nav>
+      <div class="lang-switcher">
+        <button data-lang="sq">🇦🇱</button>
+        <button data-lang="en">🇬🇧</button>
+        <button data-lang="mk">🇲🇰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="video-section">
+      <div class="video-wrapper-boosted" id="videoWrapper">
+        <video id="intro-video" autoplay muted loop playsinline>
+          <source src="assets/images2/10th International Struga 2025 Final.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <!-- put *inside* the existing .video-section, just after the <video> -->
+<div class="hero-overlay d-flex flex-column justify-content-center text-center">
+<h1 class="display-5 fw-bold mb-3"
+    data-lang-en="10th International Art Symposium"
+    data-lang-sq="Simpoziumi i 10-të Ndërkombëtar i Artit"
+    data-lang-mk="10-ти Меѓународен Симпозиум за Уметност">
+  10th International Art Symposium
+</h1>
+
+<p class="lead"
+   data-lang-en="Struga · 25 – 30 July 2025"
+   data-lang-sq="Strugë · 25 – 30 Korrik 2025"
+   data-lang-mk="Струга · 25 – 30 Јули 2025">
+  Struga · 25 – 30 July 2025
+</p>
+
+<a href="#schedule" class="btn btn-danger btn-lg mt-3"
+   data-lang-en="Explore the Week"
+   data-lang-sq="Eksploro Javën"
+   data-lang-mk="Истражи ја Неделата">
+   Explore the Week
+</a>
+
+</div>
+
+        <button class="mute-toggle-btn" id="muteToggle">🔇</button>
+      </div>
+    </section>
+
+    <section class="intro-section text-center">
+      <h1 
+        data-lang-en="10th International Art Symposium – Struga 2025"
+        data-lang-sq="Simpoziumi i 10-të Ndërkombëtar i Artit – Struga 2025"
+        data-lang-mk="10-ти Меѓународен Симпозиум за Уметност – Струга 2025"
+      >
+        10th International Art Symposium – Struga 2025
+      </h1>
+      <p 
+        data-lang-en="Founded in 2016 by Burhan Ahmeti, this symposium gathers artists from across the globe for a week of creativity, collaboration, and cultural exchange in the enchanting town of Struga, North Macedonia."
+        data-lang-sq="Themeluar në vitin 2016 nga Burhan Ahmeti, ky simpozium mbledh artistë nga e gjithë bota për një javë kreativiteti, bashkëpunimi dhe shkëmbimi kulturor në qytetin magjik të Strugës."
+        data-lang-mk="Основан во 2016 година од Бурхан Ахмети, овој симпозиум собира уметници од целиот свет за една недела на креативност, соработка и културна размена во волшебниот град Струга."
+      >
+        Founded in 2016 by Burhan Ahmeti, this symposium gathers artists from across the globe...
+      </p>
+    </section>
+
+    <section class="text-center" style="padding: 2rem 1rem; background: #1a1a1a;">
+      <h2 
+        style="color:#f33; margin-bottom:1rem;"
+        data-lang-en="Countdown to Opening Day"
+        data-lang-sq="Numërimi mbrapsht deri në hapje"
+        data-lang-mk="Одбројување до денот на отворањето"
+      >
+        Countdown to Opening Day
+      </h2>
+      <div id="countdown" style="font-size: 2rem; color: #eee; font-weight: bold;"></div>
+    </section>
+
+    <section class="text-center" style="padding: 2rem 1.5rem;">
+      <h2 
+        style="color:#f33; font-size:2rem; margin-bottom:1rem;"
+        data-lang-en="Meet the Visionary"
+        data-lang-sq="Njihuni me Vizionarin"
+        data-lang-mk="Запознајте го Визионерот"
+      >
+        Meet the Visionary
+      </h2>
+      <p 
+        style="max-width: 850px; margin: 0 auto; color: #ccc; font-size: 1.1rem; line-height: 1.8;"
+        data-lang-en="Burhan Ahmeti – a renowned Albanian artist and professor – established the International Art Symposium in Struga as a platform for intercultural dialogue and artistic reflection."
+        data-lang-sq="Burhan Ahmeti – një artist dhe profesor i njohur shqiptar – e themeloi Simpoziumin Ndërkombëtar të Artit në Strugë si një platformë për dialog ndërkulturor dhe reflektim artistik."
+        data-lang-mk="Бурхан Ахмети – познат албански уметник и професор – го основа Меѓународниот Симпозиум за Уметност во Струга како платформа за интеркултурен дијалог и уметничка рефлексија."
+      >
+        Burhan Ahmeti – a renowned Albanian artist and professor – established the symposium...
+      </p>
+    </section>
+
+<section class="text-center" style="padding: 3rem 1rem; background: #191919;">
+  <h2 
+    style="color:#f33; margin-bottom:2rem;"
+    data-lang-en="Moments from Previous Editions"
+    data-lang-sq="Momente nga Edicionet e Kaluara"
+    data-lang-mk="Моменти од Претходните Изданија"
+  >
+    Moments from Previous Editions
+  </h2>
+  <div class="container">
+    <div class="row justify-content-center g-4">
+      <div class="col-10 col-sm-6 col-md-4 col-lg-3">
+        <img src="new/12.jpg" class="img-fluid rounded shadow-sm" alt="Moment 1">
+      </div>
+        <div class="col-10 col-sm-6 col-md-4 col-lg-3">
+        <img src="new/4.jpg" class="img-fluid rounded shadow-sm" alt="Moment 3">
+      </div>
+      <div class="col-10 col-sm-6 col-md-4 col-lg-3">
+        <img src="new/11.jpg" class="img-fluid rounded shadow-sm" alt="Moment 2">
+      </div>
+    
+    </div>
+  </div>
+</section>
+
+  </main>
+
+<!-- 📅 Timeline -------------------------------------------------------------->
+<section id="schedule" class="schedule py-5">
+ <div class="container">
+ <h2 class="text-center mb-4"
+    data-lang-en="Symposium Week at a Glance"
+    data-lang-sq="Java e Simpoziumit në Shikim të Parë"
+    data-lang-mk="Неделата на Симпозиумот накратко">
+  Symposium Week at a Glance
+</h2>
+
+  <ul class="timeline list-unstyled d-flex flex-wrap justify-content-center">
+    <li><span>Day 1</span>Arrival &amp; Welcome Dinner</li>
+    <li><span>Day 2</span>Studio Setup ▸ Artist Talks</li>
+    <li><span>Day 3</span>Workshops &amp; Open Studios</li>
+    <li><span>Day 4</span>Excursion to Ohrid Lake</li>
+    <li><span>Day 5</span>Mentorship Sessions</li>
+    <li><span>Day 6</span>Final Exhibition Prep</li>
+    <li><span>Day 7</span>Public Exhibition &amp; Farewell</li>
+  </ul>
+ </div>
+</section>
+<section style="padding: 4rem 1rem; background: #181818;">
+  <div class="container">
+
+    <!-- intro -------------------------------------------------------------->
+    <div class="row justify-content-center mb-5">
+      <div class="col-lg-10">
+        <h2 class="text-start text-danger mb-3"
+            data-lang-en="Highlights from Previous Editions"
+            data-lang-sq="Momente nga Edicionet e Kaluara"
+            data-lang-mk="Истакнати моменти од претходните изданија">
+          Highlights from Previous Editions
+        </h2>
+
+        <p class="text-start text-light" style="font-size:1.1rem;line-height:1.7;"
+           data-lang-en="Over the past decade, the International Art Symposium in Struga has become a cultural landmark — bringing together talent and tradition from around the world. Each year, artists collaborate, exhibit, and exchange ideas surrounded by the natural beauty of Lake Ohrid and the rich history of Struga."
+           data-lang-sq="Gjatë dekadës së kaluar, Simpoziumi Ndërkombëtar i Artit në Strugë është shndërruar në një pikë referimi kulturore — duke bashkuar talentin dhe traditën nga e gjithë bota. Çdo vit, artistët bashkëpunojnë, ekspozojnë dhe shkëmbejnë ide, të rrethuar nga bukuria natyrore e Liqenit të Ohrit dhe historia e pasur e Strugës."
+           data-lang-mk="Во изминатата деценија, Меѓународниот симпозиум за уметност во Струга прерасна во културен репер — обединувајќи талент и традиција од целиот свет. Секоја година уметниците соработуваат, изложуваат и разменуваат идеи, опкружени со природната убавина на Охридското Езеро и богатата историја на Струга.">
+          Over the past decade, the International Art Symposium in Struga has become a cultural landmark…
+        </p>
+      </div>
+    </div>
+
+    <!-- three highlight cards --------------------------------------------->
+    <div class="row g-4 mb-5">
+
+      <!-- Exhibition -->
+      <div class="col-md-6 col-lg-4">
+        <div class="fade-in-up card bg-dark border-light shadow">
+          <img src="new/7.jpg" class="card-img-top" alt="Exhibition">
+          <div class="card-body">
+            <h5 class="card-title text-danger"
+                data-lang-en="Exhibition"
+                data-lang-sq="Ekspozitë"
+                data-lang-mk="Изложба">Exhibition</h5>
+
+            <p class="card-text text-light"
+               data-lang-en="A curated exhibition presenting all the works created during the symposium, attended by press, collectors, and guests."
+               data-lang-sq="Një ekspozitë e kuruar që paraqet të gjitha veprat e krijuara gjatë simpoziumit, e ndjekur nga media, koleksionistë dhe mysafirë."
+               data-lang-mk="Курирана изложба што ги претставува сите дела создадени за време на симпозиумот, посетена од медиуми, колекционери и гости.">
+              A curated exhibition presenting all the works…
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Talks -->
+      <div class="col-md-6 col-lg-4">
+        <div class="fade-in-up card bg-dark border-light shadow" style="animation-delay:.2s;">
+          <img src="new/8.jpg" class="card-img-top" alt="Talks">
+          <div class="card-body">
+            <h5 class="card-title text-danger"
+                data-lang-en="Talks"
+                data-lang-sq="Biseda"
+                data-lang-mk="Разговори">Talks</h5>
+
+            <p class="card-text text-light"
+               data-lang-en="Artists from every corner of the world gather around the long table, white symposium shirts and country flags spread before them, trading ideas and smiles in that first, expectant meeting—proof that creativity speaks a shared language long before the paint is opened."
+               data-lang-sq="Artistë nga çdo cep i botës mblidhen rreth tryezës së gjatë, me këmisha të bardha të simpoziumit dhe flamujt e vendeve përpara tyre, duke shkëmbyer ide dhe buzëqeshje në atë takim të parë plot pritshmëri — dëshmi se kreativiteti flet një gjuhë të përbashkët shumë përpara se të hapen bojërat."
+               data-lang-mk="Уметници од секој агол на светот се собираат околу долгата маса, со бели симпозиумски кошули и знамиња на земјите пред себе, разменувајќи идеи и насмевки на тој прв, исчекуван состанок — доказ дека креативноста зборува заеднички јазик многу пред да се отворат боите.">
+              Artists from every corner of the world gather…
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Great Memories -->
+      <div class="col-md-6 col-lg-4">
+        <div class="fade-in-up card bg-dark border-light shadow" style="animation-delay:.4s;">
+          <img src="new/5.jpg" class="card-img-top" alt="Great Memories">
+          <div class="card-body">
+            <h5 class="card-title text-danger"
+                data-lang-en="Great Memories"
+                data-lang-sq="Kujtime të Mëdha"
+                data-lang-mk="Одлични спомени">Great Memories</h5>
+
+            <p class="card-text text-light"
+               data-lang-en="Each snapshot returns us to that electric week in Struga—dawn-lit easels by the lake, midnight studios buzzing with ideas, coffee-fueled chats that bridged languages, and the final night when fresh-painted canvases glowed under gallery lights. The images hold art in the making—and the friendships that made it possible."
+               data-lang-sq="Çdo fotografi na kthen te ajo javë elektrizuese në Strugë — shtretërit e pikturës të ndriçuar nga agimi pranë liqenit, studiot e mesnatës që gumëzhinin nga idetë, bisedat e ushqyera me kafe që kapërcenin gjuhët dhe nata e fundit kur kanavacat e sapopikturuara shkëlqenin nën dritat e galerisë. Imazhet mbajnë artin në krijim — dhe miqësitë që e bënë të mundur."
+               data-lang-mk="Секоја фотографија нè враќа на онаа електризирачка недела во Струга — штафелаи осветлени од зори покрај езерото, ноќни ателјеа што зуеја од идеи, разговори со кафе што ги премостуваа јазиците, и последната ноќ кога свежонасликаните платна сјаеја под галериските светла. Сликите ја задржуваат уметноста во создавање — и пријателствата што го направија тоа можно.">
+              Each snapshot returns us to that electric week…
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /.row -->
+
+    <!--          Testimonials inside black strip --------------------------->
+    <div class="row align-items-center bg-black p-4 rounded shadow-lg mb-5">
+      <div class="col-md-6">
+        <h4 class="text-danger"
+            data-lang-en="What Artists Say"
+            data-lang-sq="Çfarë thonë Artistët"
+            data-lang-mk="Што велат уметниците">
+          What Artists Say
+        </h4>
+
+        <blockquote class="blockquote text-light"
+            data-lang-en="This symposium reignited my artistic vision. Struga's environment and the people involved made it truly unforgettable."
+            data-lang-sq="Ky simpozium rindezi vizionin tim artistik. Mjedisi i Strugës dhe njerëzit e përfshirë e bënë vërtet të paharrueshëm."
+            data-lang-mk="Овој симпозиум ја разгоре мојата уметничка визија. Средината на Струга и луѓето вклучени го направија навистина незаборавен.">
+          “This symposium reignited my artistic vision. Struga's environment and the people involved made it truly unforgettable.”
+        </blockquote>
+        <footer class="blockquote-footer text-muted">Maria Ivanova · Bulgaria</footer>
+      </div>
+
+      <div class="col-md-6">
+        <blockquote class="blockquote text-light"
+            data-lang-en="A week of creative flow, deep friendships, and cultural inspiration. I’ll come back every year if I can."
+            data-lang-sq="Një javë rrjedhë kreative, miqësi të thella dhe frymëzim kulturor. Do të kthehem çdo vit nëse mundem."
+            data-lang-mk="Недела на креативен тек, длабоки пријателства и културна инспирација. Ќе се вратам секоја година ако можам.">
+          “A week of creative flow, deep friendships, and cultural inspiration. I’ll come back every year if I can.”
+        </blockquote>
+        <footer class="blockquote-footer text-muted">Ahmet Krasniqi · Kosovo</footer>
+      </div>
+    </div><!-- /.row -->
+
+    <!-- recap button ------------------------------------------------------->
+    <div class="text-center">
+      <button class="btn btn-outline-light btn-lg"
+              data-lang-en="📽️ Watch Symposium Recap"
+              data-lang-sq="📽️ Shiko Përmbledhjen e Simpoziumit"
+              data-lang-mk="📽️ Погледни резиме од симпозиумот">
+        📽️ Watch Symposium Recap
+      </button>
+    </div>
+
+  </div><!-- /.container -->
+</section>
+
+<!-- 🔥 Stats ---------------------------------------------------------------->
+
+<section id="stats" class="stats-section py-5 text-center">
+  <div class="container">
+    <div class="row g-4 justify-content-center">
+
+      <!-- Invited Artists -->
+      <div class="col-6 col-md-3 text-center">
+        <h3 class="counter" data-target="40">0</h3>
+        <p data-lang-en="Invited Artists"
+           data-lang-sq="Artistë të Ftuar"
+           data-lang-mk="Поканети уметници">
+          Invited Artists
+        </p>
+      </div>
+
+      <!-- Countries -->
+      <div class="col-6 col-md-3 text-center">
+        <h3 class="counter" data-target="22">0</h3>
+        <p data-lang-en="Countries"
+           data-lang-sq="Shtete"
+           data-lang-mk="Земји">
+          Countries
+        </p>
+      </div>
+
+      <!-- Artworks Created -->
+      <div class="col-6 col-md-3 text-center">
+        <h3 class="counter" data-target="120">0</h3>
+        <p data-lang-en="Artworks Created"
+           data-lang-sq="Vepra të Krijuara"
+           data-lang-mk="Создадени дела">
+          Artworks Created
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="testimonials" class="py-5 bg-dark text-white">
+  <div class="container">
+    <h2 class="text-center mb-4"
+        data-lang-en="What Past Artists Say"
+        data-lang-sq="Çfarë thonë Artistët e Kaluar"
+        data-lang-mk="Што велат претходните уметници">
+      What Past Artists Say
+    </h2>
+
+    <div id="quoteCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner text-center">
+
+        <!-- 1 -->
+        <div class="carousel-item active">
+          <blockquote class="blockquote"
+              data-lang-en="Struga renewed my artistic spirit — unforgettable!"
+              data-lang-sq="Struga rigjallëroi frymën time artistike — e paharrueshme!"
+              data-lang-mk="Струга ми ја обнови уметничката инспирација — незаборавно!">
+            Struga renewed my artistic spirit — unforgettable!
+          </blockquote>
+          <figcaption class="blockquote-footer text-light">
+            Ana Tasevska · Skopje
+          </figcaption>
+        </div>
+
+        <!-- 2 -->
+        <div class="carousel-item">
+          <blockquote class="blockquote"
+              data-lang-en="Seven days of pure creativity by the lake. 10/10."
+              data-lang-sq="Shtatë ditë kreativiteti të pastër pranë liqenit. 10/10."
+              data-lang-mk="Седум дена чиста креативност покрај езерото. 10/10.">
+            Seven days of pure creativity by the lake. 10/10.
+          </blockquote>
+          <figcaption class="blockquote-footer text-light">
+            Marco De Luca · Rome
+          </figcaption>
+        </div>
+
+        <!-- 3 -->
+        <div class="carousel-item">
+          <blockquote class="blockquote"
+              data-lang-en="The mentors pushed my work to a new level."
+              data-lang-sq="Mentorët e çuan punën time në një nivel të ri."
+              data-lang-mk="Менторите ја издигнаа мојата работа на ново ниво.">
+            The mentors pushed my work to a new level.
+          </blockquote>
+          <figcaption class="blockquote-footer text-light">
+            Lea Petrović · Zagreb
+          </figcaption>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- sponsors carousel ---------------------------------------------------->
+<section class="sponsors">
+ <h2 data-lang-en="Partners & Sponsors"
+    data-lang-sq="Partnerët & Sponsorët"
+    data-lang-mk="Партнери и Спонзори">
+  Partners &amp; Sponsors
+</h2>
+
+
+  <div class="sponsor-wrapper">
+    <div class="sponsor-track">
+      <!-- row 1: five logos -->
+      <img src="assets/sponsors/picart.png" alt="Sponsor 1">
+      <img src="assets/sponsors/silindart.png" alt="Sponsor 2">
+      <img src="assets/sponsors/struga komuna.png" alt="Sponsor 3">
+      <img src="assets/sponsors/gigabel.png" alt="Sponsor 4">
+      <img src="assets/sponsors/San Deco.png" alt="Sponsor 5">
+            <img src="assets/sponsors/picart.png" alt="Sponsor 1">
+      <img src="assets/sponsors/silindart.png" alt="Sponsor 2">
+      <img src="assets/sponsors/struga komuna.png" alt="Sponsor 3">
+      <img src="assets/sponsors/gigabel.png" alt="Sponsor 4">
+      <img src="assets/sponsors/San Deco.png" alt="Sponsor 5">
+           <img src="assets/sponsors/picart.png" alt="Sponsor 1">
+      <img src="assets/sponsors/silindart.png" alt="Sponsor 2">
+      <img src="assets/sponsors/struga komuna.png" alt="Sponsor 3">
+      <img src="assets/sponsors/gigabel.png" alt="Sponsor 4">
+      <img src="assets/sponsors/San Deco.png" alt="Sponsor 5">
+           <img src="assets/sponsors/picart.png" alt="Sponsor 1">
+      <img src="assets/sponsors/silindart.png" alt="Sponsor 2">
+      <img src="assets/sponsors/struga komuna.png" alt="Sponsor 3">
+      <img src="assets/sponsors/gigabel.png" alt="Sponsor 4">
+      <img src="assets/sponsors/San Deco.png" alt="Sponsor 5">
+
+      <!-- row 2: exact duplicate for seamless loop -->
+
+
+    </div>
+    
+  </div>
+  
+</section>
+
+
+
+
+<!-- Bootstrap Modal -->
+<div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content bg-dark border-light">
+      <div class="modal-header border-0">
+        <h5 class="modal-title text-light" id="videoModalLabel">Symposium Highlights Video</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="ratio ratio-16x9">
+          <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" title="Symposium Highlights" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+  <footer class="text-center text-muted py-3 bg-dark mt-5">
+    &copy; 2025 SILINDART – All rights reserved. Developed by <strong>CodeWithKokizZ</strong>
+  </footer>
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    const countdown = () => {
+      const countDate = new Date("June 30, 2025 20:00:00").getTime();
+      const now = new Date().getTime();
+      const gap = countDate - now;
+      const second = 1000;
+      const minute = second * 60;
+      const hour = minute * 60;
+      const day = hour * 24;
+      const d = Math.floor(gap / day);
+      const h = Math.floor((gap % day) / hour);
+      const m = Math.floor((gap % hour) / minute);
+      const s = Math.floor((gap % minute) / second);
+      document.getElementById('countdown').innerHTML = `${d}d ${h}h ${m}m ${s}s`;
+    };
+    setInterval(countdown, 1000);
+
+    const video = document.getElementById('intro-video');
+    const muteBtn = document.getElementById('muteToggle');
+    muteBtn.addEventListener('click', () => {
+      video.muted = !video.muted;
+      muteBtn.textContent = video.muted ? '🔇' : '🔊';
+      muteBtn.classList.toggle('unmuted', !video.muted);
+    });
+
+    document.querySelectorAll('.lang-switcher button').forEach(button => {
+      button.addEventListener('click', () => {
+        const lang = button.getAttribute('data-lang');
+        localStorage.setItem('selectedLang', lang);
+        document.querySelectorAll('[data-lang-en]').forEach(el => {
+          const translated = el.getAttribute(`data-lang-${lang}`);
+          if (translated) el.textContent = translated;
+        });
+      });
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('selectedLang') || 'en';
+      const activeBtn = document.querySelector(`.lang-switcher button[data-lang="${savedLang}"]`);
+      if (activeBtn) activeBtn.click();
+    });
+    /* animated counters */
+document.querySelectorAll('.counter').forEach(el=>{
+  const run=()=>{const t=+el.dataset.target,v=+el.innerText,s=Math.ceil(t/60);
+    if(v<t){el.innerText=v+s;requestAnimationFrame(run)}else{el.innerText=t}};
+  new IntersectionObserver(([e],io)=>{if(e.isIntersecting){run();io.disconnect();}})
+  .observe(el);
+});
+/* autoplay 6-second interval */
+const quoteCarousel = document.querySelector('#quoteCarousel');
+if (quoteCarousel) new bootstrap.Carousel(quoteCarousel,{interval:6000, pause:false});
+/* === Delay blur & title until 10 s === */
+const overlay = document.querySelector('.hero-overlay');
+const vid     = document.getElementById('intro-video');
+
+function revealOverlay(){
+  if (vid.currentTime >= 6) {
+    overlay.classList.add('show');
+    vid.removeEventListener('timeupdate', revealOverlay);
+  }
+}
+vid.addEventListener('timeupdate', revealOverlay);
+/* ---------- MULTILINGUAL HANDLER ------------------------------- */
+
+/* grab every element that has an English text key */
+const translatables = [...document.querySelectorAll('[data-lang-en]')];
+
+/* swap visible text for the requested language (falls back to EN) */
+function setLanguage(lang) {
+  translatables.forEach(el => {
+    const txt = el.getAttribute(`data-lang-${lang}`) ??
+                el.getAttribute('data-lang-en');
+    if (txt) el.innerHTML = txt;
+  });
+}
+
+/* 1️⃣ default – fire once when the page is ready */
+document.addEventListener('DOMContentLoaded', () => setLanguage('en'));
+
+/* 2️⃣ flag buttons – change language on click */
+document.querySelectorAll('.lang-switcher button').forEach(btn => {
+  btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
+});
+  </script>
+
+</body>
+</html>

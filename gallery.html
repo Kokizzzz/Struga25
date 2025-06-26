@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Struga '25 Art Symposium – Final Exhibition</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/css/lightbox.min.css">
+  <!-- Elegant serif for headings -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+<!-- Clean sans-serif for body text -->
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500&display=swap" rel="stylesheet">
+
+
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .art-card{opacity:0;transform:translateY(40px);transition:opacity .6s ease, transform .6s ease}
+.art-card.visible{opacity:1;transform:none}
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <div class="logo">
+     <img src="/assets/sponsors/struga.png" alt="Silindart Logo" />
+      </div>
+
+      <div class="menu-toggle" onclick="toggleMenu()">
+        <div></div><div></div><div></div>
+      </div>
+
+      <nav class="main-nav">
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="index.html">Artists</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="lang-switcher">
+        <button data-lang="sq">🇦🇱</button>
+        <button data-lang="en">🇬🇧</button>
+        <button data-lang="mk">🇲🇰</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="gallery">
+    <!-- ⬇︎  REPLACE your current <section id="content"> … </section> with this one ⬇︎ -->
+<section id="content">
+
+  <!-- headline -->
+  <h1
+    data-lang-en="Final Exhibition – Art Showcase"
+    data-lang-sq="Ekspozita Përfundimtare – Vitrina e Artit"
+    data-lang-mk="Завршна Изложба – Уметничка Поставка">
+    Final Exhibition – Art Showcase
+  </h1>
+
+  <!-- description -->
+  <p class="gallery-description"
+     data-lang-en="The following collection features artworks created during the 10th International Art Symposium – Struga 2025. These 30+ pieces are showcased during the final evening, and many are available for exhibition and sale."
+     data-lang-sq="Koleksioni i mëposhtëm përfshin veprat e krijuara gjatë Simpoziumit të 10-të Ndërkombëtar të Artit – Struga 2025. Mbi 30 punime ekspozohen në mbrëmjen finale dhe shumë prej tyre janë të disponueshme për ekspozim ose shitje."
+     data-lang-mk="Колекцијата подолу ги претставува делата создадени за време на 10-тиот Меѓународен Симпозиум за Уметност – Струга 2025. Овие 30+ дела се изложуваат на завршната вечер, а многу од нив се достапни за изложување и продажба.">
+    The following collection features artworks created during the 10th International Art Symposium – Struga 2025. These 30+ pieces are showcased during the final evening, and many are available for exhibition and sale.
+  </p>
+
+  <!-- info box – translations were already present; kept intact -->
+  <div class="upload-info-box"
+       data-lang-en="Thank you for being part of the 10th International Art Symposium – Struga 2025. If you've attended the event and captured special moments, we invite you to share them using the Contact page."
+       data-lang-sq="Faleminderit që ishit pjesë e Simpoziumit Ndërkombëtar të Artit – Struga 2025. Nëse keni kapur momente të veçanta, ju ftojmë t’i ndani përmes faqes së Kontaktit."
+       data-lang-mk="Ви благодариме што бевте дел од 10-тиот Меѓународен Симпозиум за Уметност – Струга 2025. Доколку имате фотографии, ве покануваме да ги споделите преку страната за Контакт.">
+    Thank you for being part of the 10th International Art Symposium – Struga 2025. If you've attended the event and captured special moments, we invite you to share them using the Contact page.
+  </div>
+
+</section>
+<!-- ⬆︎ END replacement block ⬆︎ -->
+
+<!-- insert *above* .gallery-grid -->
+<div class="filter-pills text-center mb-4">
+  <button class="btn btn-outline-light btn-sm px-3 me-2 active" data-filter="">All</button>
+  <button class="btn btn-outline-light btn-sm px-3 me-2" data-filter="Oil">Oil</button>
+  <button class="btn btn-outline-light btn-sm px-3 me-2" data-filter="Watercolor">Watercolor</button>
+  <button class="btn btn-outline-light btn-sm px-3"         data-filter="Sculpture">Sculpture</button>
+</div>
+
+    <!-- 🎨 Art Showcase -->
+    <section id="gallery-page" class="gallery-grid">
+      <!-- Sample Blocks, Replace with real artwork image paths -->
+      <div class="art-card">
+        <img src="assets/paintings/placeholder1.jpg" alt="Artwork 1">
+        <div class="art-info">
+          <h3>Untitled</h3>
+          <p>by Artist Name</p>
+        </div>
+      </div>
+
+      <div class="art-card">
+        <img src="assets/paintings/placeholder2.jpg" alt="Artwork 2">
+        <div class="art-info">
+          <h3>Forest Dream</h3>
+          <p>by Artist Name</p>
+        </div>
+      </div>
+
+      <div class="art-card">
+        <img src="assets/paintings/placeholder3.jpg" alt="Artwork 3">
+        <div class="art-info">
+          <h3>Whispers</h3>
+          <p>by Artist Name</p>
+        </div>
+      </div>
+
+       <!-- Sample Blocks, Replace with real artwork image paths -->
+      <div class="art-card">
+        <img src="assets/paintings/placeholder1.jpg" alt="Artwork 1">
+        <div class="art-info">
+          <h3>Untitled</h3>
+          <p>by Artist Name</p>
+        </div>
+      </div>
+
+      <div class="art-card">
+        <img src="assets/paintings/placeholder2.jpg" alt="Artwork 2">
+        <div class="art-info">
+          <h3>Forest Dream</h3>
+          <p>by Artist Name</p>
+        </div>
+      </div>
+
+      <div class="art-card">
+        <img src="assets/paintings/placeholder3.jpg" alt="Artwork 3">
+        <div class="art-info">
+          <h3>Whispers</h3>
+          <p>by Artist Name</p>
+        </div>
+      </div>
+
+       <!-- Sample Blocks, Replace with real artwork image paths -->
+      <div class="art-card">
+        <img src="assets/paintings/placeholder1.jpg" alt="Artwork 1">
+        <div class="art-info">
+          <h3>Untitled</h3>
+          <p>by Artist Name</p>
+        </div>
+      </div>
+
+      <div class="art-card">
+        <img src="assets/paintings/placeholder2.jpg" alt="Artwork 2">
+        <div class="art-info">
+          <h3>Forest Dream</h3>
+          <p>by Artist Name</p>
+        </div>
+      </div>
+
+      <div class="art-card">
+        <img src="assets/paintings/placeholder3.jpg" alt="Artwork 3">
+        <div class="art-info">
+          <h3>Whispers</h3>
+          <p>by Artist Name</p>
+        </div>
+      </div>
+
+      <!-- Repeat more <div class="art-card"> as needed -->
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 SILINDART Association for Art and Culture</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/js/lightbox.min.js"></script>
+  <script>
+    /* click to filter */
+document.querySelectorAll('.filter-pills button').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelector('.filter-pills .active').classList.remove('active');
+    btn.classList.add('active');
+    const val=btn.dataset.filter;
+    document.querySelectorAll('.gallery-grid .art-card').forEach(card=>{
+      card.style.display = !val||card.dataset.medium===val ? '' : 'none';
+    });
+  });
+});
+const cards=[...document.querySelectorAll('.art-card')];
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>e.isIntersecting&&e.target.classList.add('visible'));
+},{threshold:.1});
+cards.forEach(c=>io.observe(c));
+<!-- --- Language switcher --- -->
+(() => {
+  /* cache buttons & all translatable elements once ------------------- */
+  const langButtons = document.querySelectorAll('.lang-switcher [data-lang]');
+  const translatable = document.querySelectorAll('[data-lang-en]');
+
+  let activeLang = 'en';                 // default language
+
+  /* helper to switch language --------------------------------------- */
+  const switchLang = lang => {
+    activeLang = lang;
+
+    translatable.forEach(el => {
+      const newText = el.getAttribute(`data-lang-${lang}`);
+      if (newText) el.innerHTML = newText;
+    });
+  };
+
+  /* click handler ---------------------------------------------------- */
+  langButtons.forEach(btn => {
+    btn.addEventListener('click', () => switchLang(btn.dataset.lang));
+  });
+
+  /* OPTIONAL: if you want the flag button to look “active” ----------- */
+  const markActive = lang => {
+    langButtons.forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+  };
+  langButtons.forEach(btn => {
+    btn.addEventListener('click', () => markActive(btn.dataset.lang));
+  });
+  markActive(activeLang);               // mark English on load
+})();
+</script>
+
+  </script>
+
+</body>
+</html>
