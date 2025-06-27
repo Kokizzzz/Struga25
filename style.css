@@ -883,15 +883,6 @@ header {
   padding: 1rem 2rem;
 }
 
-.header-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-}
-
-
 /* Logo */
 .logo img {
   height: 50px;
