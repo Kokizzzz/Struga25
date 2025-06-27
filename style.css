@@ -82,12 +82,6 @@ header {
   background: #eee;
 }
 
-/* === RESPONSIVE FIX === */
-@media screen and (max-width: 768px) {
-  .header-container {
-  
-    align-items: center;
-  }
 
 .main-nav {
   width: 100%;
