@@ -1852,3 +1852,46 @@ h5, h6{font-weight:500}
     height:36px;           /* shrink logo height */
   }
 }
+/* ── MOBILE HEADER LAYOUT (≤768px) ── */
+@media (max-width: 768px) {
+  .header-container {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 0.5rem 1rem;
+  }
+
+  /* hamburger on the left */
+  .menu-toggle {
+    position: static !important;
+    order: 0;
+  }
+
+  /* logo in the middle */
+  .logo {
+    order: 1;
+  }
+
+  /* language flags on the right */
+  .lang-switcher {
+    order: 2;
+  }
+
+  .lang-switcher button {
+    font-size: 1.4rem;
+    padding: 0;
+    line-height: 1;
+  }
+
+  /* collapsed nav stays hidden until toggled */
+  .main-nav ul {
+    display: none !important;
+  }
+  .main-nav ul.active {
+    display: flex !important;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+}
