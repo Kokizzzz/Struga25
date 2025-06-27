@@ -174,45 +174,35 @@
 </head>
 <body class="home-page">
   <div id="particles-js" class="particles-bg"></div>
-  <header>
-    <div class="header-container">
-      <div class="logo">
-     <img src="assets/sponsors/struga.png" alt="Silindart Logo" />
-      </div>
-      <div class="menu-toggle" onclick="toggleMenu()">
-        <div></div><div></div><div></div>
-      </div>
-      <nav class="main-nav">
-        <ul id="nav-list">
-  <li><a href="home.html"
-       data-lang-en="Home"
-       data-lang-sq="Ballina"
-       data-lang-mk="Дома">Home</a></li>
-
-<li><a href="index.html"
-       data-lang-en="Artists"
-       data-lang-sq="Artistët"
-       data-lang-mk="Уметници">Artists</a></li>
-
-<li><a href="gallery.html"
-       data-lang-en="Gallery"
-       data-lang-sq="Galeria"
-       data-lang-mk="Галерија">Gallery</a></li>
-
-<li><a href="contact.html"
-       data-lang-en="Contact"
-       data-lang-sq="Kontakti"
-       data-lang-mk="Контакт">Contact</a></li>
-
-        </ul>
-      </nav>
-      <div class="lang-switcher">
-        <button data-lang="sq">🇦🇱</button>
-        <button data-lang="en">🇬🇧</button>
-        <button data-lang="mk">🇲🇰</button>
-      </div>
+<header class="site-header">
+  <div class="header-container">
+    <div class="logo">
+      <a href="home.html">
+        <img src="assets/sponsors/struga.png" alt="Silindart Logo" />
+      </a>
     </div>
-  </header>
+
+    <button class="menu-toggle" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="main-nav">
+      <ul id="nav-list">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="index.html">Artists</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="lang-switcher">
+      <button data-lang="sq">AL</button>
+      <button data-lang="en">GB</button>
+      <button data-lang="mk">MK</button>
+    </div>
+  </div>
+</header>
+
 
   <main>
     <section class="video-section">
